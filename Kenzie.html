@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@peksej - лучший бесплатный гарант для eFootball</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rubik+Mono+One&display=swap');
+        
+        :root {
+            --primary: #4CAF50;
+            --secondary: #8BC34A;
+            --dark: #121212;
+            --light: #FFFFFF;
+            --accent: #FFC107;
+            --card-bg: rgba(30, 30, 30, 0.95);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(139, 195, 74, 0.15) 0%, transparent 30%),
+                url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+        
+        .logo {
+            font-family: 'Rubik Mono One', sans-serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .guarantor-card {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .guarantor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
+        }
+        
+        .guarantor-name {
+            font-family: 'Rubik Mono One', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            margin: 0 auto 25px;
+            display: block;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            min-width: 220px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: var(--dark);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.5);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.7);
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 193, 7, 0.15);
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 193, 7, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.3);
+        }
+        
+        .testimonials {
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary);
+            backdrop-filter: blur(5px);
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--secondary);
+            text-align: right;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 35px 0;
+        }
+        
+        .advantage {
+            background: rgba(76, 175, 80, 0.15);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .advantage:hover {
+            transform: translateY(-5px);
+            background: rgba(76, 175, 80, 0.2);
+        }
+        
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .advantage h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(76, 175, 80, 0.3);
+            margin-top: 60px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            background: rgba(18, 18, 18, 0.7);
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .telegram-icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 12px 25px;
+            }
+            
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">PEKSE ГАРАНТ</div>
+            <div class="tagline">Лучший бесплатный гарант для eFootball в Telegram</div>
+        </header>
+        
+        <main class="main-content">
+            <div class="guarantor-card">
+                <img src="1000101748.jpg" alt="@peksej гарант eFootball" class="profile-image">
+                <h2 class="guarantor-name">@peksej</h2>
+                <p style="text-align: center; font-size: 1.2rem; margin-bottom: 30px;">Нету денег на нормального гаранта?<br>Тогда тебе к нему <span class="highlight">@peksej</span> — самый лучший и <span class="highlight">БЕСПЛАТНЫЙ</span> гарант в телеграм с кучей отзывов и большой репой!</p>
+                
+                <div class="advantages">
+                    <div class="advantage">
+                        <div class="advantage-icon">💰</div>
+                        <h3>Полностью бесплатно</h3>
+                        <p>Никаких скрытых платежей или подписок. Честная помощь безвозмездно.</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">🏆</div>
+                        <h3>Проверенная репутация</h3>
+                        <p>Сотни успешных сделок и довольных клиентов за плечами.</p>
+                    </div>
+                    <div class="advantage">
+                        <div class="advantage-icon">📈</div>
+                        <h3>Профессионализм</h3>
+                        <p>Гарантирует честные сделки и безопасность для всех участников.</p>
+                    </div>
+                </div>
+                
+                <div class="buttons">
+                    <a href="https://t.me/Kanzeiminusak" class="btn btn-primary">
+                        <span class="telegram-icon">📢</span> Перейти в канал
+                    </a>
+                    <a href="https://t.me/+LwGtMAJyI8M4MTZi" class="btn btn-secondary">
+                        <span class="telegram-icon">⭐</span> Читать отзывы
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonials">
+                <h2 style="text-align: center; color: var(--accent); margin-bottom: 30px; font-size: 1.8rem;">Отзывы клиентов</h2>
+                
+                <div class="testimonial">
+                    <p>"Благодаря @peksej смог безопасно провести несколько крупных сделок по обмену игровых ценностей. Все четко, быстро и без проблем. Рекомендую всем, кто ценит надежность!"</p>
+                    <div class="testimonial-author">- Tiko</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Никогда не думал, что можно найти настолько ответственного гаранта бесплатно. @peksej реально выручает сообщество!"</p>
+                    <div class="testimonial-author">- 𝙓𝙊𝙂𝙍𝘼𝙄𝘿𝙀𝙍 𝟮.𝟲</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"После неудачного опыта с платными гарантами обратился к @peksej и был приятно удивлен уровнем сервиса. Теперь только к нему!"</p>
+                    <div class="testimonial-author">- BIGLIEN</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <p>© 2023 @peksej - лучший бесплатный гарант для eFootball</p>
+        <p>Все сделки осуществляются через Telegram</p>
+    </footer>
+</body>
+</html>
